@@ -11,6 +11,29 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+/*
+|--------------------------------------------------------------------------
+| Guest Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::get('register', [
+    'uses'  =>  'UserController@create',
+    'as'    =>  'user.create'
+]);
+
+Route::post('register',[
+    'uses'  =>  'UserController@store',
+    'as'    =>  'user.register'
+]);
+
+Route::post('login',[
+    'uses'  =>  'UserController@login',
+    'as'    =>  'user.login'
+]);
+
+Route::get('logout',[
+    'uses'  =>  'UserController@logout',
+    'as'    =>  'user.logout'
+]);
