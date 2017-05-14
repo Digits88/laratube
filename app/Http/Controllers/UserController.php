@@ -33,14 +33,22 @@ class UserController extends Controller
             "email.unique"  =>  "This User Already Exists",
             "confirm-password.same"  => "The passwords do not match"
         ]);
-
+        
         $this->user->register($this->request->all());
+    }
+
+    public function confirmMail($id,$hash){
+        $this->user->confirmEmail($id,$hash);
+        if($this->user->confirmEmail($id,$hash)){
+            return redirect()->route('user.create');
+        }
     }
 
     public function login(){
         if($this->user->login($this->request->all())){
-            echo Auth::check();
+            return redirect()->route('user.dashboard');
         }
+        return redirect()->route('user.create')->with('loginError','Email or Password is wrong.');
     }
 
     public function logout(){

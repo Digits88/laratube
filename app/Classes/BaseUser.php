@@ -2,7 +2,9 @@
 
 namespace App\Classes;
 
+use App\Mail\ConfirmAccountEmail;
 use App\MemberDetails;
+use Illuminate\Mail\Mailer;
 use Illuminate\Support\Facades\Auth;
 
 class BaseUser{
@@ -10,9 +12,11 @@ class BaseUser{
     public $memberDetails;
     protected $id;
     protected $user;
+    protected $confirmURL;
 
-    public function __construct(MemberDetails $memberDetails){
+    public function __construct(MemberDetails $memberDetails, Mailer $mail){
         $this->memberDetails = $memberDetails;
+        $this->mail = $mail;
     }
 
     public function register($data){
@@ -26,6 +30,9 @@ class BaseUser{
 
         $this->user->save();
         $this->createUserDetails($data);
+        
+        $this->sendConfirmEmail($data['name']);
+        
     }
 
     public function createUserDetails($data){
@@ -36,12 +43,31 @@ class BaseUser{
     }
 
     public function login($credentials){
-        return Auth::attempt(["email" => $credentials['login_email'],"password" => $credentials['login_password']]);
+        if(Auth::attempt(["email" => $credentials['login_email'],"password" => $credentials['login_password']])){
+            return true;
+        }
+        return false;
     }
 
     public function logout($route){
         Auth::logout();
         return redirect()->route($route);
+    }
+
+
+    public function sendConfirmEmail($name){
+        $this->confirmURL = route('user.confirm',['id' => $this->user->id, 'hash' => $this->user->hash]);
+        $this->mail->to($this->user->email)->later(10,new ConfirmAccountEmail($name, $this->confirmURL));
+    }
+
+    public function confirmEmail($id,$hash){
+        $this->user = $this->user->find($id);
+        if($this->user->hash == $hash){
+            $this->user->isActive = 1;
+            $this->user->update();
+            return true;
+        }
+        return false;
     }
 
 }

@@ -42,6 +42,11 @@
             </form>
         </div>
         <div class="col-md-offset-2 col-md-4">
+            @if(Request::session()->has('loginError'))
+                <div class="alert alert-warning alert-dismissible fade in" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    {{ Request::session()->get('loginError') }}
+                </div>
+            @endif
             <h2>Login</h2>
             <form action="{{ route('user.login') }}" method="POST">
                 <div class="form-group">

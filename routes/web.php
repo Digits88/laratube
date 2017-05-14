@@ -37,3 +37,20 @@ Route::get('logout',[
     'uses'  =>  'UserController@logout',
     'as'    =>  'user.logout'
 ]);
+
+Route::get('confirm/{id}/{hash}',[
+    'uses'  =>  'UserController@confirmMail',
+    'as'    =>  'user.confirm'
+]);
+
+/*
+|--------------------------------------------------------------------------
+| User Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::group(['prefix' => 'user', 'middleware' => 'user'],function(){
+    Route::get('/dashboard', function(){
+        echo "HELLO";
+    })->name('user.dashboard');
+});
