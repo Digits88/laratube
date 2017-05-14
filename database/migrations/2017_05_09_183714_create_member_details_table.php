@@ -14,7 +14,8 @@ class CreateMemberDetailsTable extends Migration
     public function up()
     {
         Schema::create('member_details', function (Blueprint $table) {
-            $table->morphs('member');
+            $table->string('member_id');
+            $table->string('member_type',191);
             $table->string('name',100);
             $table->text('about')->nullable();
             $table->string('coverImage');
