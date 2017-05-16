@@ -11,8 +11,7 @@ use Illuminate\Mail\Mailer;
 class UserManager extends BaseUser{
 
     public function __construct(User $user, MemberDetails $memberDetails,Mailer $mail){
-        parent::__construct($memberDetails,$mail);
+        parent::__construct($memberDetails, $mail);
         $this->user = $user;
     }
-    
 }

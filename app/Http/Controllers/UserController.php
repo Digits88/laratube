@@ -22,9 +22,9 @@ class UserController extends Controller
         return view('pages.register');
     }
 
-    public function store(){
+    public function store(Request $request){
 
-        $this->validate($this->request,[
+        $this->validate($request,[
             "name"  =>  "bail|required|min:5",
             "email" =>  "bail|required|email|unique:users",
             "password"  =>  "bail|required|min:8",

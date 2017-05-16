@@ -69,5 +69,4 @@ class BaseUser{
         }
         return false;
     }
-
 }
