@@ -31,7 +31,7 @@
                     <a href="#" class="waves-effect"><i class="md md-mail"></i><span> Video </span><span class="pull-right"><i class="md md-add"></i></span></a>
                     <ul class="list-unstyled">
                         <li><a href="{{ route('videos.create') }}">Upload Video</a></li>
-                        <li><a href="email-compose.html">Show Videos</a></li>
+                        <li><a href="{{route('videos.index')}}">Show Videos</a></li>
                     </ul>
                 </li>
 
@@ -54,7 +54,7 @@
                 <li class="has_sub">
                     <a href="#" class="waves-effect"><i class="md md-invert-colors-on"></i><span> Series </span><span class="pull-right"><i class="md md-add"></i></span></a>
                     <ul class="list-unstyled">
-                        <li><a href="{{route('index.main')}}">All Series</a></li>
+                        <li><a href="{{route('series.index')}}">All Series</a></li>
                         <li><a href="{{route('series.create')}}">Add Series</a></li>
                     </ul>
                 </li>

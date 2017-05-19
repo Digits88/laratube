@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Video extends Model
 {
-    protected $table = "videos";
+    public function series()
+    {
+        return $this->belongsTo('App\Series');
+    }
 }
