@@ -22,14 +22,8 @@
 <script src="{{asset('assets/flot-chart/jquery.flot.time.js')}}"></script>
 <script src="{{asset('assets/flot-chart/jquery.flot.tooltip.min.js')}}"></script>
 <script src="{{asset('assets/flot-chart/jquery.flot.resize.js')}}"></script>
-<script src="assets/flot-chart/jquery.flot.pie.js"></script>
-<script src="assets/flot-chart/jquery.flot.selection.js"></script>
-<script src="assets/flot-chart/jquery.flot.stack.js"></script>
 <script src="{{asset('assets/flot-chart/jquery.flot.crosshair.js')}}"></script>
 
-<!-- Counter-up -->
-<script src="assets/counterup/waypoints.min.js" type="text/javascript"></script>
-<script src="assets/counterup/jquery.counterup.min.js" type="text/javascript"></script>
 
 <!-- CUSTOM JS -->
 <script src="{{asset('js/jquery.app.js')}}"></script>
@@ -39,18 +33,3 @@
 
 <!-- Chat -->
 <script src="{{asset('js/jquery.chat.js')}}"></script>
-
-<!-- Todo -->
-<script src="{{asset('js/jquery.todo.js')}}"></script>
-
-<script type="text/javascript">
-    /* ==============================================
-     Counter Up
-     =============================================== */
-    jQuery(document).ready(function($) {
-        $('.counter').counterUp({
-            delay: 100,
-            time: 1200
-        });
-    });
-</script>

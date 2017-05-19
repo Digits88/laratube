@@ -28,8 +28,8 @@
 
             @include('partials._footer')
             {{--</div>--}}
-            @include('admins.dashboard.partials._javascripts')
-            @yield('scripts')
         </div>
+        @include('admins.dashboard.partials._javascripts')
+        @yield('scripts')
     </body>
 </html>

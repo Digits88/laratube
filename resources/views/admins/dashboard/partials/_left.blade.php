@@ -30,7 +30,7 @@
                 <li class="has_sub">
                     <a href="#" class="waves-effect"><i class="md md-mail"></i><span> Video </span><span class="pull-right"><i class="md md-add"></i></span></a>
                     <ul class="list-unstyled">
-                        <li><a href="inbox.html">Upload Video</a></li>
+                        <li><a href="{{ route('videos.create') }}">Upload Video</a></li>
                         <li><a href="email-compose.html">Show Videos</a></li>
                     </ul>
                 </li>
@@ -48,7 +48,21 @@
                         <li><a href="{{route('index.main')}}">All Categories</a></li>
                         <li><a href="{{route('create.main')}}">Add Category</a></li>
                         <li><a href="{{route('create.sub')}}">Add Sub Category</a></li>
-                        <li><a href="portlets.html">Add Sub Sub Category</a></li>
+                        <li><a href="{{route('create.child')}}">Add Sub Sub Category</a></li>
+                    </ul>
+                </li>
+                <li class="has_sub">
+                    <a href="#" class="waves-effect"><i class="md md-invert-colors-on"></i><span> Series </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                    <ul class="list-unstyled">
+                        <li><a href="{{route('index.main')}}">All Series</a></li>
+                        <li><a href="{{route('series.create')}}">Add Series</a></li>
+                    </ul>
+                </li>
+                <li class="has_sub">
+                    <a href="#" class="waves-effect"><i class="md md-invert-colors-on"></i><span> Tag </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                    <ul class="list-unstyled">
+                        <li><a href="{{route('index.main')}}">All Tags</a></li>
+                        <li><a href="{{route('tags.create')}}">Add Tag</a></li>
                     </ul>
                 </li>
 

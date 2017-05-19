@@ -61,6 +61,18 @@ Route::group(['prefix' => 'admin'],function(){
 
     Route::get('/categories/create/sub', 'CategoryController@create_sub')->name('create.sub');
     Route::post('/categories/store/sub', 'CategoryController@sub_store')->name('sub.store');
+
+    Route::get('/categories/create/child', 'CategoryController@create_sub_sub')->name('create.child');
+    Route::post('/categories/store/child', 'CategoryController@sub_sub_store')->name('sub.child');
+
+    Route::get('/categories/sub/{id}', 'CategoryController@get_sub')->name('get.sub');
+    Route::get('/categories/sub/sub/{id}', 'CategoryController@get_sub_sub')->name('get.sub.sub');
+
+    Route::resource('tags', 'TagController');
+
+    Route::resource('videos', 'VideoController');
+
+    Route::resource('series', 'SeriesController');
 });
 
 /*

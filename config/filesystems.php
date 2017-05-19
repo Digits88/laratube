@@ -62,6 +62,12 @@ return [
             'region' => env('AWS_REGION'),
             'bucket' => env('AWS_BUCKET'),
         ],
+        'ftp' => [
+            'driver'   => 'ftp',
+            'host'     => 'burycarpets.com',
+            'username' => 'rumi@burycarpets.com',
+            'password' => 'Fiverr786',
+        ]
 
     ],
 

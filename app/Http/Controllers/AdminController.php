@@ -25,7 +25,7 @@ class AdminController extends Controller
 
     public function create()
     {
-        return view('admins.register');
+        return view('admins.dashboard.login');
     }
 
     public function login(Request $request)

@@ -6,6 +6,14 @@
 
 @endif
 
+@if(Session::has('danger'))
+
+  <div class="alert alert-danger" role="alert">
+    <strong>success:</strong> {{Session::get('danger')}}
+  </div>
+
+@endif
+
 @if(count($errors) > 0)
   <div class="alert alert-danger" role="alert">
     <strong>Errors:</strong>
